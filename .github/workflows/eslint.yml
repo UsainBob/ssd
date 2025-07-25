@@ -21,5 +21,5 @@ jobs:
       - name: Install ESLint temporarily
         run: |
           npm init -y
-          npm install eslint --save-dev
+          npm install eslint@8 --save-dev
           npx eslint . --ext .js --max-warnings=0
