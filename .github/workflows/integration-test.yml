@@ -27,7 +27,7 @@ jobs:
 
       - name: Start local HTTP server
         run: |
-          npx http-server ./ -p 8080 &
+          npx http-server ./html -p 8080 &
           sleep 3
 
       - name: Run Playwright tests
