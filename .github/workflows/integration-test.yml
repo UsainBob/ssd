@@ -22,7 +22,7 @@ jobs:
       - name: Install test tools
         run: |
           npm init -y
-          npm install --save-dev playwright http-server
+          npm install --save-dev @playwright/test http-server
           npx playwright install
 
       - name: Start local HTTP server
