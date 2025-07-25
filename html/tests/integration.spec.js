@@ -1,3 +1,4 @@
+/* eslint-env node */
 const { test, expect } = require('@playwright/test');
 
 test('safe input redirects to result page', async ({ page }) => {
