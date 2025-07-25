@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Search Result</title>
+</head>
+<body>
+  <h1>Search Term:</h1>
+  <p id="resultText"></p>
+  <button onclick="goBack()">Go Back</button>
+
+  <script>
+    // Safely display search term from URL param
+    const params = new URLSearchParams(window.location.search);
+    const term = params.get("q") || "";
+    document.getElementById("resultText").textContent = term;
+
+    function goBack() {
+      window.location.href = "index.html";
+    }
+  </script>
+</body>
+</html>
