@@ -1,0 +1,34 @@
+name: Integration Testing
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  run-integration-tests:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 18
+
+      - name: Install test tools
+        run: |
+          npm init -y
+          npm install --save-dev playwright http-server
+          npx playwright install
+
+      - name: Start local HTTP server
+        run: |
+          npx http-server ./ -p 8080 &
+          sleep 3
+
+      - name: Run Playwright tests
+        run: npx playwright test
