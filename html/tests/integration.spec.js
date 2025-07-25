@@ -4,7 +4,7 @@ test('safe input redirects to result page', async ({ page }) => {
   await page.goto('http://localhost:8080');
   await page.fill('#searchInput', 'safe test');
   await page.click('button[type="submit"]');
-  await expect(page.url()).toMatch(/\/$|\/index\.html$/);
+  await expect(page.url()).toContain('/result.html');
 });
 
 test('malicious input stays on home page', async ({ page }) => {
